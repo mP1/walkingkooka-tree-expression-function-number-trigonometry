@@ -57,7 +57,15 @@ public final class NumberTrigonomteryExpressionFunctions implements PublicStatic
     public static void visit(final Consumer<ExpressionFunction<?, ?>> consumer) {
         Lists.of(
                 acos(),
-                pi()
+                asin(),
+                atan(),
+                cos(),
+                cosh(),
+                pi(),
+                sin(),
+                sinh(),
+                tan(),
+                tanh()
         ).forEach(consumer);
     }
 
@@ -74,11 +82,107 @@ public final class NumberTrigonomteryExpressionFunctions implements PublicStatic
     ).function(FunctionExpressionName.with("acos"));
 
     /**
+     * ASIN
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> asin() {
+        return Cast.to(ASIN);
+    }
+
+    private final static ExpressionFunction<ExpressionNumber, ExpressionFunctionContext> ASIN = ExpressionNumberFunctions.lambdas(
+            BigDecimalMath::asin,
+            Math::asin
+    ).function(FunctionExpressionName.with("asin"));
+
+    /**
+     * ATAN
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> atan() {
+        return Cast.to(ATAN);
+    }
+
+    private final static ExpressionFunction<ExpressionNumber, ExpressionFunctionContext> ATAN = ExpressionNumberFunctions.lambdas(
+            BigDecimalMath::atan,
+            Math::atan
+    ).function(FunctionExpressionName.with("atan"));
+
+    /**
+     * COS
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> cos() {
+        return Cast.to(COS);
+    }
+
+    private final static ExpressionFunction<ExpressionNumber, ExpressionFunctionContext> COS = ExpressionNumberFunctions.lambdas(
+            BigDecimalMath::cos,
+            Math::cos
+    ).function(FunctionExpressionName.with("cos"));
+
+    /**
+     * COSH
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> cosh() {
+        return Cast.to(COSH);
+    }
+
+    private final static ExpressionFunction<ExpressionNumber, ExpressionFunctionContext> COSH = ExpressionNumberFunctions.lambdas(
+            BigDecimalMath::cosh,
+            Math::cosh
+    ).function(FunctionExpressionName.with("cosh"));
+
+    /**
      * {@see NumberExpressionFunctionPi}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> pi() {
         return NumberExpressionFunctionPi.instance();
     }
+
+    /**
+     * SIN
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> sin() {
+        return Cast.to(SIN);
+    }
+
+    private final static ExpressionFunction<ExpressionNumber, ExpressionFunctionContext> SIN = ExpressionNumberFunctions.lambdas(
+            BigDecimalMath::sin,
+            Math::sin
+    ).function(FunctionExpressionName.with("sin"));
+
+    /**
+     * SINH
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> sinh() {
+        return Cast.to(SINH);
+    }
+
+    private final static ExpressionFunction<ExpressionNumber, ExpressionFunctionContext> SINH = ExpressionNumberFunctions.lambdas(
+            BigDecimalMath::sinh,
+            Math::sinh
+    ).function(FunctionExpressionName.with("sinh"));
+
+    /**
+     * TAN
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> tan() {
+        return Cast.to(TAN);
+    }
+
+    private final static ExpressionFunction<ExpressionNumber, ExpressionFunctionContext> TAN = ExpressionNumberFunctions.lambdas(
+            BigDecimalMath::tan,
+            Math::tan
+    ).function(FunctionExpressionName.with("tan"));
+
+    /**
+     * TANH
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> tanh() {
+        return Cast.to(TANH);
+    }
+
+    private final static ExpressionFunction<ExpressionNumber, ExpressionFunctionContext> TANH = ExpressionNumberFunctions.lambdas(
+            BigDecimalMath::tanh,
+            Math::tanh
+    ).function(FunctionExpressionName.with("tanh"));
 
     /**
      * Stops creation

@@ -16,7 +16,20 @@ A collection of trigonometry ExpressionFunction(s) that operate and return numbe
 Many more functions are outstanding and remain TODO.
 
 - acos(number)
+- asin(number)
+- atan(number)
+- cos(number)
+- cosh(number)
+- [TODO cosec(number)](https://github.com/mP1/walkingkooka-tree-expression-function-number-trigonometry/issues/10)
+- [TODO cot(number)](https://github.com/mP1/walkingkooka-tree-expression-function-number-trigonometry/issues/12)
+- [TODO degrees(number)](https://github.com/mP1/walkingkooka-tree-expression-function-number-trigonometry/issues/13)
 - pi()
+- [TODO sec(number)](https://github.com/mP1/walkingkooka-tree-expression-function-number-trigonometry/issues/11)
+- [TODO radians(number)](https://github.com/mP1/walkingkooka-tree-expression-function-number-trigonometry/issues/14)
+- sin(number)
+- sinh(number)
+- tan(number)
+- tanh(number)
 
 
 
