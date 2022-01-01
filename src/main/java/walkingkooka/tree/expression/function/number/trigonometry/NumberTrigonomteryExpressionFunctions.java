@@ -34,9 +34,13 @@
 
 package walkingkooka.tree.expression.function.number.trigonometry;
 
+import ch.obermuhlner.math.big.BigDecimalMath;
+import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.tree.expression.ExpressionNumber;
+import walkingkooka.tree.expression.ExpressionNumberFunctions;
+import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunction;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
@@ -58,11 +62,16 @@ public final class NumberTrigonomteryExpressionFunctions implements PublicStatic
     }
 
     /**
-     * {@link AcosExpressionNumberFunction#instance()}
+     * ACOS
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> acos() {
-        return AcosExpressionNumberFunction.instance();
+        return Cast.to(ACOS);
     }
+
+    private final static ExpressionFunction<ExpressionNumber, ExpressionFunctionContext> ACOS = ExpressionNumberFunctions.lambdas(
+            BigDecimalMath::acos,
+            Math::acos
+    ).function(FunctionExpressionName.with("acos"));
 
     /**
      * {@see NumberExpressionFunctionPi}

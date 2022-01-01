@@ -35,19 +35,27 @@
 package walkingkooka.tree.expression.function.number.trigonometry;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.ToStringTesting;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
+import walkingkooka.tree.expression.ExpressionNumber;
+import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunction;
+import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.function.FakeExpressionFunctionContext;
 
 import java.lang.reflect.Method;
+import java.math.BigDecimal;
 import java.math.MathContext;
 import java.util.Arrays;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public final class NumberTrigonomteryExpressionFunctionsTest implements PublicStaticHelperTesting<NumberTrigonomteryExpressionFunctions> {
+public final class NumberTrigonomteryExpressionFunctionsTest implements PublicStaticHelperTesting<NumberTrigonomteryExpressionFunctions>,
+        ToStringTesting<NumberTrigonomteryExpressionFunctions> {
 
     @Test
     public void testVisit() {
@@ -60,8 +68,99 @@ public final class NumberTrigonomteryExpressionFunctionsTest implements PublicSt
                         .collect(Collectors.toCollection(Sets::sorted))
                         .size(),
                 names.size());
-//        this.checkEquals(true, names.contains(NumberTrigonomteryExpressionFunctions.ceil().name()));
+        this.checkEquals(true, names.contains(NumberTrigonomteryExpressionFunctions.acos().name()));
     }
+
+    // acos............................................................................................................
+
+    @Test
+    public void testAcosBigDecimal() {
+        this.mapBigDecimalAndCheck(
+                NumberTrigonomteryExpressionFunctions.acos(),
+                BigDecimal.valueOf(0.5),
+                new BigDecimal("1.047198")
+        );
+    }
+
+    @Test
+    public void testAcosDouble() {
+        this.mapDoubleAndCheck(
+                NumberTrigonomteryExpressionFunctions.acos(),
+                0.5,
+                Math.acos(0.5)
+        );
+    }
+
+    @Test
+    public void testAcosToString() {
+        this.toStringAndCheck(
+                NumberTrigonomteryExpressionFunctions.acos(),
+                "acos"
+        );
+    }
+
+    private void mapBigDecimalAndCheck(final ExpressionFunction<ExpressionNumber, ExpressionFunctionContext> function,
+                                       final BigDecimal value,
+                                       final BigDecimal expected) {
+        this.mapAndCheck(
+                function,
+                value,
+                ExpressionNumberKind.BIG_DECIMAL,
+                expected
+        );
+    }
+
+    private void mapDoubleAndCheck(final ExpressionFunction<ExpressionNumber, ExpressionFunctionContext> function,
+                                   final double value,
+                                   final double expected) {
+        this.mapAndCheck(
+                function,
+                value,
+                ExpressionNumberKind.DOUBLE,
+                expected
+        );
+    }
+
+    private <T extends Number> void mapAndCheck(final ExpressionFunction<ExpressionNumber, ExpressionFunctionContext> function,
+                                                final T value,
+                                                final ExpressionNumberKind kind,
+                                                final T expected) {
+        this.checkEquals(
+                kind.create(expected),
+                function.apply(
+                        Lists.of(
+                                kind.create(value)
+                        ),
+                        this.context(kind)
+                ),
+                () -> function + " " + value
+        );
+    }
+
+    private ExpressionFunctionContext context(final ExpressionNumberKind kind) {
+        return new FakeExpressionFunctionContext() {
+            @Override
+            public ExpressionNumberKind expressionNumberKind() {
+                return kind;
+            }
+
+            @Override
+            public MathContext mathContext() {
+                return MathContext.DECIMAL32;
+            }
+
+            @Override
+            public String toString() {
+                return this.expressionNumberKind() + " " + this.mathContext();
+            }
+        };
+    }
+
+    public void testCheckToStringOverridden() {
+        throw new UnsupportedOperationException();
+    }
+
+    // PublicStaticHelperTesting........................................................................................
 
     @Test
     public void testPublicStaticMethodsWithoutMathContextParameter() {
