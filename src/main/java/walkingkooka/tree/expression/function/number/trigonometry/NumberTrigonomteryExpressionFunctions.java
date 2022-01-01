@@ -44,6 +44,7 @@ import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunction;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
+import java.math.BigDecimal;
 import java.util.function.Consumer;
 
 /**
@@ -61,6 +62,7 @@ public final class NumberTrigonomteryExpressionFunctions implements PublicStatic
                 atan(),
                 cos(),
                 cosh(),
+                degrees(),
                 pi(),
                 sin(),
                 sinh(),
@@ -128,6 +130,25 @@ public final class NumberTrigonomteryExpressionFunctions implements PublicStatic
             BigDecimalMath::cosh,
             Math::cosh
     ).function(FunctionExpressionName.with("cosh"));
+
+    /**
+     * DEGREES
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> degrees() {
+        return Cast.to(DEGREES);
+    }
+
+    private final static BigDecimal ONE_EIGHTY = new BigDecimal("180");
+
+    private final static ExpressionFunction<ExpressionNumber, ExpressionFunctionContext> DEGREES = ExpressionNumberFunctions.lambdas(
+            (v, mc) -> v.multiply(
+                    ONE_EIGHTY.divide(
+                            BigDecimalMath.pi(mc),
+                            mc
+                    )
+            ),
+            Math::toDegrees
+    ).function(FunctionExpressionName.with("degrees"));
 
     /**
      * {@see NumberExpressionFunctionPi}

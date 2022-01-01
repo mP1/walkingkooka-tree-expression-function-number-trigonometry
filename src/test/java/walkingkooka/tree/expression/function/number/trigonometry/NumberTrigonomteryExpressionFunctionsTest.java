@@ -211,6 +211,34 @@ public final class NumberTrigonomteryExpressionFunctionsTest implements PublicSt
         );
     }
 
+    // degrees............................................................................................................
+
+    @Test
+    public void testDegreesBigDecimal() {
+        this.mapBigDecimalAndCheck(
+                NumberTrigonomteryExpressionFunctions.degrees(),
+                BigDecimal.valueOf(0.5),
+                new BigDecimal("28.647885")
+        );
+    }
+
+    @Test
+    public void testDegreesDouble() {
+        this.mapDoubleAndCheck(
+                NumberTrigonomteryExpressionFunctions.degrees(),
+                0.5,
+                Math.toDegrees(0.5)
+        );
+    }
+
+    @Test
+    public void testDegreesToString() {
+        this.toStringAndCheck(
+                NumberTrigonomteryExpressionFunctions.degrees(),
+                "degrees"
+        );
+    }
+    
     // sin............................................................................................................
 
     @Test
