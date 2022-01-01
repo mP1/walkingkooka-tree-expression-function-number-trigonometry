@@ -52,8 +52,16 @@ public final class NumberTrigonomteryExpressionFunctions implements PublicStatic
      */
     public static void visit(final Consumer<ExpressionFunction<?, ?>> consumer) {
         Lists.of(
+                acos(),
                 pi()
         ).forEach(consumer);
+    }
+
+    /**
+     * {@link AcosExpressionNumberFunction#instance()}
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> acos() {
+        return AcosExpressionNumberFunction.instance();
     }
 
     /**
