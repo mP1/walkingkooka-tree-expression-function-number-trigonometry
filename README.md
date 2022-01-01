@@ -15,4 +15,7 @@ A collection of trigonometry ExpressionFunction(s) that operate and return numbe
 
 Many more functions are outstanding and remain TODO.
 
+- pi()
+
+
 

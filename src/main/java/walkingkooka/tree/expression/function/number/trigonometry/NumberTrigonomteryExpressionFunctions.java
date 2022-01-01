@@ -36,7 +36,9 @@ package walkingkooka.tree.expression.function.number.trigonometry;
 
 import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.function.ExpressionFunction;
+import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 import java.util.function.Consumer;
 
@@ -49,8 +51,16 @@ public final class NumberTrigonomteryExpressionFunctions implements PublicStatic
      * Visit all {@link ExpressionFunction functions}.
      */
     public static void visit(final Consumer<ExpressionFunction<?, ?>> consumer) {
-        Lists.<ExpressionFunction<?, ?>>of().
-                forEach(consumer);
+        Lists.of(
+                pi()
+        ).forEach(consumer);
+    }
+
+    /**
+     * {@see NumberExpressionFunctionPi}
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> pi() {
+        return NumberExpressionFunctionPi.instance();
     }
 
     /**
