@@ -22,7 +22,7 @@ Many more functions are outstanding and remain TODO.
 - cosh(number)
 - [TODO cosec(number)](https://github.com/mP1/walkingkooka-tree-expression-function-number-trigonometry/issues/10)
 - [TODO cot(number)](https://github.com/mP1/walkingkooka-tree-expression-function-number-trigonometry/issues/12)
-- [TODO degrees(number)](https://github.com/mP1/walkingkooka-tree-expression-function-number-trigonometry/issues/13)
+- degrees(number)
 - pi()
 - [TODO sec(number)](https://github.com/mP1/walkingkooka-tree-expression-function-number-trigonometry/issues/11)
 - [TODO radians(number)](https://github.com/mP1/walkingkooka-tree-expression-function-number-trigonometry/issues/14)
