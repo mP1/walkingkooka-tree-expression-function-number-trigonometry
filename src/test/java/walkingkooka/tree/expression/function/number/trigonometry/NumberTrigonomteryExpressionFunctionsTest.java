@@ -238,6 +238,34 @@ public final class NumberTrigonomteryExpressionFunctionsTest implements PublicSt
                 "degrees"
         );
     }
+
+    // radians............................................................................................................
+
+    @Test
+    public void testRadiansBigDecimal() {
+        this.mapBigDecimalAndCheck(
+                NumberTrigonomteryExpressionFunctions.radians(),
+                BigDecimal.valueOf(30),
+                new BigDecimal("0.5235987")
+        );
+    }
+
+    @Test
+    public void testRadiansDouble() {
+        this.mapDoubleAndCheck(
+                NumberTrigonomteryExpressionFunctions.radians(),
+                30,
+                Math.toRadians(30)
+        );
+    }
+
+    @Test
+    public void testRadiansToString() {
+        this.toStringAndCheck(
+                NumberTrigonomteryExpressionFunctions.radians(),
+                "radians"
+        );
+    }
     
     // sin............................................................................................................
 
