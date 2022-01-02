@@ -64,6 +64,7 @@ public final class NumberTrigonomteryExpressionFunctions implements PublicStatic
                 cosh(),
                 degrees(),
                 pi(),
+                radians(),
                 sin(),
                 sinh(),
                 tan(),
@@ -156,6 +157,23 @@ public final class NumberTrigonomteryExpressionFunctions implements PublicStatic
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> pi() {
         return NumberExpressionFunctionPi.instance();
     }
+
+    /**
+     * RADIANS
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> radians() {
+        return Cast.to(RADIANS);
+    }
+
+    private final static ExpressionFunction<ExpressionNumber, ExpressionFunctionContext> RADIANS = ExpressionNumberFunctions.lambdas(
+            (v, mc) -> v.multiply(
+                    BigDecimalMath.pi(mc).divide(
+                            ONE_EIGHTY,
+                            mc
+                    )
+            ),
+            Math::toRadians
+    ).function(FunctionExpressionName.with("radians"));
 
     /**
      * SIN
