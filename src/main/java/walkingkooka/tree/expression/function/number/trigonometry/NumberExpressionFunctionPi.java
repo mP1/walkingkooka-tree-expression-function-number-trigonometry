@@ -69,7 +69,7 @@ final class NumberExpressionFunctionPi<C extends ExpressionFunctionContext> exte
                 pi = DOUBLE;
                 break;
             default:
-                NeverError.unhandledCase(pi, ExpressionNumberKind.values());
+                NeverError.unhandledCase(kind, ExpressionNumberKind.values());
                 break;
         }
 
