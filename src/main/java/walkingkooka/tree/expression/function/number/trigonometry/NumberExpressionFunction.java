@@ -57,6 +57,11 @@ abstract class NumberExpressionFunction<C extends ExpressionFunctionContext> imp
     }
 
     @Override
+    public final boolean requiresEvaluatedParameters() {
+        return true;
+    }
+
+    @Override
     public final boolean resolveReferences() {
         return true;
     }

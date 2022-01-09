@@ -53,15 +53,13 @@ public abstract class NumberExpressionFunctionTestCase<F extends ExpressionFunct
     }
 
     @Test
-    public final void testResolveReferencesTrue() {
-        this.resolveReferencesAndCheck(true);
+    public final void testRequiresEvaluatedParameters() {
+        this.requiresEvaluatedParametersAndCheck(true);
     }
 
-    final void apply2(final Number... parameters) {
-        this.createBiFunction()
-                .apply(parameters(parameters),
-                        this.createContext()
-                );
+    @Test
+    public final void testResolveReferencesTrue() {
+        this.resolveReferencesAndCheck(true);
     }
 
     @Override
