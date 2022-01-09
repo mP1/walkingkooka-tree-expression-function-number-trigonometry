@@ -54,7 +54,7 @@ public abstract class NumberExpressionFunctionTestCase<F extends ExpressionFunct
 
     @Test
     public final void testResolveReferencesTrue() {
-        this.resolveReferenceAndCheck(true);
+        this.resolveReferencesAndCheck(true);
     }
 
     final void apply2(final Number... parameters) {
