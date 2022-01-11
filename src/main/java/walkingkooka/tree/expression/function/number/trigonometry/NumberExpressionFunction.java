@@ -39,11 +39,6 @@ abstract class NumberExpressionFunction<C extends ExpressionFunctionContext> imp
     }
 
     @Override
-    public final boolean lsLastParameterVariable() {
-        return false;
-    }
-
-    @Override
     public final Class<ExpressionNumber> returnType() {
         return ExpressionNumber.class;
     }

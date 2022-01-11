@@ -53,7 +53,7 @@ final class NumberExpressionFunctionPi<C extends ExpressionFunctionContext> exte
     @Override
     public ExpressionNumber apply(final List<Object> parameters,
                                   final C context) {
-        this.checkOnlyRequiredParameters(parameters);
+        this.checkParameterCount(parameters);
 
         ExpressionNumber pi = null;
 
