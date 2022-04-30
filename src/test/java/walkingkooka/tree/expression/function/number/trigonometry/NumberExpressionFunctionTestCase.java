@@ -26,9 +26,11 @@ import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.function.ExpressionFunction;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.function.ExpressionFunctionKind;
 import walkingkooka.tree.expression.function.ExpressionFunctionTesting;
 import walkingkooka.tree.expression.function.FakeExpressionFunctionContext;
 
+import java.util.EnumSet;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -53,13 +55,14 @@ public abstract class NumberExpressionFunctionTestCase<F extends ExpressionFunct
     }
 
     @Test
-    public final void testRequiresEvaluatedParameters() {
-        this.requiresEvaluatedParametersAndCheck(true);
-    }
-
-    @Test
-    public final void testResolveReferencesTrue() {
-        this.resolveReferencesAndCheck(true);
+    public final void testKind() {
+        this.checkEquals(
+                EnumSet.of(
+                        ExpressionFunctionKind.REQUIRES_EVALUATED_PARAMETERS,
+                        ExpressionFunctionKind.RESOLVE_REFERENCES
+                ),
+                this.createBiFunction().kinds()
+        );
     }
 
     @Override
