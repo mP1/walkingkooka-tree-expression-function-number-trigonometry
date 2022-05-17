@@ -58,6 +58,7 @@ public abstract class NumberExpressionFunctionTestCase<F extends ExpressionFunct
     public final void testKind() {
         this.checkEquals(
                 EnumSet.of(
+                        ExpressionFunctionKind.CONVERT_PARAMETERS,
                         ExpressionFunctionKind.EVALUATE_PARAMETERS,
                         ExpressionFunctionKind.RESOLVE_REFERENCES
                 ),
