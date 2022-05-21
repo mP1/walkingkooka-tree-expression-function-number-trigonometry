@@ -40,12 +40,12 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.ExpressionNumberKind;
+import walkingkooka.tree.expression.FakeExpressionEvaluationContext;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunction;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
-import walkingkooka.tree.expression.function.FakeExpressionFunctionContext;
 
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
@@ -379,7 +379,7 @@ public final class NumberTrigonomteryExpressionFunctionsTest implements PublicSt
         );
     }
 
-    private void mapBigDecimalAndCheck(final ExpressionFunction<ExpressionNumber, ExpressionFunctionContext> function,
+    private void mapBigDecimalAndCheck(final ExpressionFunction<ExpressionNumber, ExpressionEvaluationContext> function,
                                        final BigDecimal value,
                                        final BigDecimal expected) {
         this.mapAndCheck(
@@ -390,7 +390,7 @@ public final class NumberTrigonomteryExpressionFunctionsTest implements PublicSt
         );
     }
 
-    private void mapDoubleAndCheck(final ExpressionFunction<ExpressionNumber, ExpressionFunctionContext> function,
+    private void mapDoubleAndCheck(final ExpressionFunction<ExpressionNumber, ExpressionEvaluationContext> function,
                                    final double value,
                                    final double expected) {
         this.mapAndCheck(
@@ -401,7 +401,7 @@ public final class NumberTrigonomteryExpressionFunctionsTest implements PublicSt
         );
     }
 
-    private <T extends Number> void mapAndCheck(final ExpressionFunction<ExpressionNumber, ExpressionFunctionContext> function,
+    private <T extends Number> void mapAndCheck(final ExpressionFunction<ExpressionNumber, ExpressionEvaluationContext> function,
                                                 final T value,
                                                 final ExpressionNumberKind kind,
                                                 final T expected) {
@@ -417,8 +417,8 @@ public final class NumberTrigonomteryExpressionFunctionsTest implements PublicSt
         );
     }
 
-    private ExpressionFunctionContext context(final ExpressionNumberKind kind) {
-        return new FakeExpressionFunctionContext() {
+    private ExpressionEvaluationContext context(final ExpressionNumberKind kind) {
+        return new FakeExpressionEvaluationContext() {
             @Override
             public ExpressionNumberKind expressionNumberKind() {
                 return kind;

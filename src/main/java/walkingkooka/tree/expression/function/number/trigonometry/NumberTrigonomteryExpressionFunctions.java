@@ -38,11 +38,11 @@ import ch.obermuhlner.math.big.BigDecimalMath;
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.ExpressionNumberFunctions;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunction;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 import java.math.BigDecimal;
 import java.util.function.Consumer;
@@ -75,11 +75,11 @@ public final class NumberTrigonomteryExpressionFunctions implements PublicStatic
     /**
      * ACOS
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> acos() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<ExpressionNumber, C> acos() {
         return Cast.to(ACOS);
     }
 
-    private final static ExpressionFunction<ExpressionNumber, ExpressionFunctionContext> ACOS = ExpressionNumberFunctions.lambdas(
+    private final static ExpressionFunction<ExpressionNumber, ExpressionEvaluationContext> ACOS = ExpressionNumberFunctions.lambdas(
             BigDecimalMath::acos,
             Math::acos
     ).function(FunctionExpressionName.with("acos"));
@@ -87,11 +87,11 @@ public final class NumberTrigonomteryExpressionFunctions implements PublicStatic
     /**
      * ASIN
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> asin() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<ExpressionNumber, C> asin() {
         return Cast.to(ASIN);
     }
 
-    private final static ExpressionFunction<ExpressionNumber, ExpressionFunctionContext> ASIN = ExpressionNumberFunctions.lambdas(
+    private final static ExpressionFunction<ExpressionNumber, ExpressionEvaluationContext> ASIN = ExpressionNumberFunctions.lambdas(
             BigDecimalMath::asin,
             Math::asin
     ).function(FunctionExpressionName.with("asin"));
@@ -99,11 +99,11 @@ public final class NumberTrigonomteryExpressionFunctions implements PublicStatic
     /**
      * ATAN
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> atan() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<ExpressionNumber, C> atan() {
         return Cast.to(ATAN);
     }
 
-    private final static ExpressionFunction<ExpressionNumber, ExpressionFunctionContext> ATAN = ExpressionNumberFunctions.lambdas(
+    private final static ExpressionFunction<ExpressionNumber, ExpressionEvaluationContext> ATAN = ExpressionNumberFunctions.lambdas(
             BigDecimalMath::atan,
             Math::atan
     ).function(FunctionExpressionName.with("atan"));
@@ -111,11 +111,11 @@ public final class NumberTrigonomteryExpressionFunctions implements PublicStatic
     /**
      * COS
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> cos() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<ExpressionNumber, C> cos() {
         return Cast.to(COS);
     }
 
-    private final static ExpressionFunction<ExpressionNumber, ExpressionFunctionContext> COS = ExpressionNumberFunctions.lambdas(
+    private final static ExpressionFunction<ExpressionNumber, ExpressionEvaluationContext> COS = ExpressionNumberFunctions.lambdas(
             BigDecimalMath::cos,
             Math::cos
     ).function(FunctionExpressionName.with("cos"));
@@ -123,11 +123,11 @@ public final class NumberTrigonomteryExpressionFunctions implements PublicStatic
     /**
      * COSH
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> cosh() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<ExpressionNumber, C> cosh() {
         return Cast.to(COSH);
     }
 
-    private final static ExpressionFunction<ExpressionNumber, ExpressionFunctionContext> COSH = ExpressionNumberFunctions.lambdas(
+    private final static ExpressionFunction<ExpressionNumber, ExpressionEvaluationContext> COSH = ExpressionNumberFunctions.lambdas(
             BigDecimalMath::cosh,
             Math::cosh
     ).function(FunctionExpressionName.with("cosh"));
@@ -135,13 +135,13 @@ public final class NumberTrigonomteryExpressionFunctions implements PublicStatic
     /**
      * DEGREES
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> degrees() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<ExpressionNumber, C> degrees() {
         return Cast.to(DEGREES);
     }
 
     private final static BigDecimal ONE_EIGHTY = new BigDecimal("180");
 
-    private final static ExpressionFunction<ExpressionNumber, ExpressionFunctionContext> DEGREES = ExpressionNumberFunctions.lambdas(
+    private final static ExpressionFunction<ExpressionNumber, ExpressionEvaluationContext> DEGREES = ExpressionNumberFunctions.lambdas(
             (v, mc) -> v.multiply(
                     ONE_EIGHTY.divide(
                             BigDecimalMath.pi(mc),
@@ -154,18 +154,18 @@ public final class NumberTrigonomteryExpressionFunctions implements PublicStatic
     /**
      * {@see NumberExpressionFunctionPi}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> pi() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<ExpressionNumber, C> pi() {
         return NumberExpressionFunctionPi.instance();
     }
 
     /**
      * RADIANS
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> radians() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<ExpressionNumber, C> radians() {
         return Cast.to(RADIANS);
     }
 
-    private final static ExpressionFunction<ExpressionNumber, ExpressionFunctionContext> RADIANS = ExpressionNumberFunctions.lambdas(
+    private final static ExpressionFunction<ExpressionNumber, ExpressionEvaluationContext> RADIANS = ExpressionNumberFunctions.lambdas(
             (v, mc) -> v.multiply(
                     BigDecimalMath.pi(mc).divide(
                             ONE_EIGHTY,
@@ -178,11 +178,11 @@ public final class NumberTrigonomteryExpressionFunctions implements PublicStatic
     /**
      * SIN
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> sin() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<ExpressionNumber, C> sin() {
         return Cast.to(SIN);
     }
 
-    private final static ExpressionFunction<ExpressionNumber, ExpressionFunctionContext> SIN = ExpressionNumberFunctions.lambdas(
+    private final static ExpressionFunction<ExpressionNumber, ExpressionEvaluationContext> SIN = ExpressionNumberFunctions.lambdas(
             BigDecimalMath::sin,
             Math::sin
     ).function(FunctionExpressionName.with("sin"));
@@ -190,11 +190,11 @@ public final class NumberTrigonomteryExpressionFunctions implements PublicStatic
     /**
      * SINH
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> sinh() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<ExpressionNumber, C> sinh() {
         return Cast.to(SINH);
     }
 
-    private final static ExpressionFunction<ExpressionNumber, ExpressionFunctionContext> SINH = ExpressionNumberFunctions.lambdas(
+    private final static ExpressionFunction<ExpressionNumber, ExpressionEvaluationContext> SINH = ExpressionNumberFunctions.lambdas(
             BigDecimalMath::sinh,
             Math::sinh
     ).function(FunctionExpressionName.with("sinh"));
@@ -202,11 +202,11 @@ public final class NumberTrigonomteryExpressionFunctions implements PublicStatic
     /**
      * TAN
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> tan() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<ExpressionNumber, C> tan() {
         return Cast.to(TAN);
     }
 
-    private final static ExpressionFunction<ExpressionNumber, ExpressionFunctionContext> TAN = ExpressionNumberFunctions.lambdas(
+    private final static ExpressionFunction<ExpressionNumber, ExpressionEvaluationContext> TAN = ExpressionNumberFunctions.lambdas(
             BigDecimalMath::tan,
             Math::tan
     ).function(FunctionExpressionName.with("tan"));
@@ -214,11 +214,11 @@ public final class NumberTrigonomteryExpressionFunctions implements PublicStatic
     /**
      * TANH
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> tanh() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<ExpressionNumber, C> tanh() {
         return Cast.to(TANH);
     }
 
-    private final static ExpressionFunction<ExpressionNumber, ExpressionFunctionContext> TANH = ExpressionNumberFunctions.lambdas(
+    private final static ExpressionFunction<ExpressionNumber, ExpressionEvaluationContext> TANH = ExpressionNumberFunctions.lambdas(
             BigDecimalMath::tanh,
             Math::tanh
     ).function(FunctionExpressionName.with("tanh"));
