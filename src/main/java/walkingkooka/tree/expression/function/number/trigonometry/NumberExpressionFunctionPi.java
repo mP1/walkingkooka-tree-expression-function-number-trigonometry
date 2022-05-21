@@ -20,17 +20,17 @@ package walkingkooka.tree.expression.function.number.trigonometry;
 import ch.obermuhlner.math.big.BigDecimalMath;
 import walkingkooka.Cast;
 import walkingkooka.NeverError;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.FunctionExpressionName;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 
 import java.util.List;
 
-final class NumberExpressionFunctionPi<C extends ExpressionFunctionContext> extends NumberExpressionFunction<C>{
+final class NumberExpressionFunctionPi<C extends ExpressionEvaluationContext> extends NumberExpressionFunction<C>{
 
-    static <C extends ExpressionFunctionContext> NumberExpressionFunctionPi<C> instance() {
+    static <C extends ExpressionEvaluationContext> NumberExpressionFunctionPi<C> instance() {
         return Cast.to(INSTANCE);
     }
 

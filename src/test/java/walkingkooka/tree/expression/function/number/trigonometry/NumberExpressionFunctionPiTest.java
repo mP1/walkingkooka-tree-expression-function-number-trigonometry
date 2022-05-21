@@ -20,22 +20,22 @@ package walkingkooka.tree.expression.function.number.trigonometry;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.ExpressionNumberKind;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
-import walkingkooka.tree.expression.function.FakeExpressionFunctionContext;
+import walkingkooka.tree.expression.FakeExpressionEvaluationContext;
 
 import java.math.MathContext;
 import java.text.DecimalFormat;
 
-public final class NumberExpressionFunctionPiTest extends NumberExpressionFunctionTestCase<NumberExpressionFunctionPi<ExpressionFunctionContext>> {
+public final class NumberExpressionFunctionPiTest extends NumberExpressionFunctionTestCase<NumberExpressionFunctionPi<ExpressionEvaluationContext>> {
 
     @Test
     public void testBigDecimalPi() {
         final ExpressionNumber number = this.createBiFunction()
                 .apply(
                         Lists.empty(),
-                        new FakeExpressionFunctionContext() {
+                        new FakeExpressionEvaluationContext() {
                             @Override
                             public ExpressionNumberKind expressionNumberKind() {
                                 return ExpressionNumberKind.BIG_DECIMAL;
@@ -57,7 +57,7 @@ public final class NumberExpressionFunctionPiTest extends NumberExpressionFuncti
     public void testDoublePi() {
         this.applyAndCheck(
                 Lists.empty(),
-                new FakeExpressionFunctionContext() {
+                new FakeExpressionEvaluationContext() {
                     @Override
                     public ExpressionNumberKind expressionNumberKind() {
                         return ExpressionNumberKind.DOUBLE;
@@ -73,12 +73,12 @@ public final class NumberExpressionFunctionPiTest extends NumberExpressionFuncti
     }
 
     @Override
-    public NumberExpressionFunctionPi<ExpressionFunctionContext> createBiFunction() {
+    public NumberExpressionFunctionPi<ExpressionEvaluationContext> createBiFunction() {
         return NumberExpressionFunctionPi.instance();
     }
 
     @Override
-    public Class<NumberExpressionFunctionPi<ExpressionFunctionContext>> type() {
+    public Class<NumberExpressionFunctionPi<ExpressionEvaluationContext>> type() {
         return Cast.to(NumberExpressionFunctionPi.class);
     }
 }
