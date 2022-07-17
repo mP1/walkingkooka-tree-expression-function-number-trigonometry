@@ -79,7 +79,7 @@ final class NumberExpressionFunctionPi<C extends ExpressionEvaluationContext> ex
     private final static ExpressionNumber DOUBLE = ExpressionNumberKind.DOUBLE.create(Math.PI);
 
     @Override
-    public List<ExpressionFunctionParameter<?>> parameters() {
+    public List<ExpressionFunctionParameter<?>> parameters(final int count) {
         return ExpressionFunctionParameter.EMPTY;
     }
 }
