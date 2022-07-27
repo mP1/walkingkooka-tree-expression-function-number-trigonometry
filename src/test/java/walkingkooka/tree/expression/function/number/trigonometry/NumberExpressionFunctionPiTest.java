@@ -78,6 +78,11 @@ public final class NumberExpressionFunctionPiTest extends NumberExpressionFuncti
     }
 
     @Override
+    public int minimumParameterCount() {
+        return 0;
+    }
+
+    @Override
     public Class<NumberExpressionFunctionPi<ExpressionEvaluationContext>> type() {
         return Cast.to(NumberExpressionFunctionPi.class);
     }
