@@ -60,7 +60,7 @@ public final class NumberTrigonomteryExpressionFunctionsTest implements PublicSt
     @Test
     public void testVisit() {
         final Set<FunctionExpressionName> names = Sets.sorted();
-        NumberTrigonomteryExpressionFunctions.visit((e) -> names.add(e.name()));
+        NumberTrigonomteryExpressionFunctions.visit((e) -> names.add(e.name().get()));
 
         this.checkEquals(Arrays.stream(NumberTrigonomteryExpressionFunctions.class.getDeclaredMethods())
                         .filter(m -> m.getReturnType() == ExpressionFunction.class)
@@ -68,7 +68,11 @@ public final class NumberTrigonomteryExpressionFunctionsTest implements PublicSt
                         .collect(Collectors.toCollection(Sets::sorted))
                         .size(),
                 names.size());
-        this.checkEquals(true, names.contains(NumberTrigonomteryExpressionFunctions.acos().name()));
+
+        this.checkEquals(
+                true,
+                names.contains(NumberTrigonomteryExpressionFunctions.acos().name().get())
+        );
     }
 
     // acos............................................................................................................

@@ -27,6 +27,7 @@ import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 
 import java.util.List;
+import java.util.Optional;
 
 final class NumberExpressionFunctionPi<C extends ExpressionEvaluationContext> extends NumberExpressionFunction<C>{
 
@@ -44,11 +45,13 @@ final class NumberExpressionFunctionPi<C extends ExpressionEvaluationContext> ex
     }
 
     @Override
-    public FunctionExpressionName name() {
+    public Optional<FunctionExpressionName> name() {
         return NAME;
     }
 
-    private final static FunctionExpressionName NAME = FunctionExpressionName.with("pi");
+    private final static Optional<FunctionExpressionName> NAME = Optional.of(
+            FunctionExpressionName.with("pi")
+    );
 
     @Override
     public ExpressionNumber apply(final List<Object> parameters,
