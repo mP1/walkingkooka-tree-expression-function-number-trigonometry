@@ -49,6 +49,8 @@ abstract class NumberExpressionFunction<C extends ExpressionEvaluationContext> i
 
     @Override
     public final String toString() {
-        return this.name().toString();
+        return this.name()
+                .get()
+                .toString();
     }
 }
