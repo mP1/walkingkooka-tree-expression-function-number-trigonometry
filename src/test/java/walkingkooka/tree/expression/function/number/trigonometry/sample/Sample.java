@@ -17,10 +17,44 @@
 
 package walkingkooka.tree.expression.function.number.trigonometry.sample;
 
+import walkingkooka.Either;
+import walkingkooka.collect.list.Lists;
+import walkingkooka.tree.expression.ExpressionNumberKind;
+import walkingkooka.tree.expression.FakeExpressionEvaluationContext;
+import walkingkooka.tree.expression.function.number.trigonometry.NumberTrigonomteryExpressionFunctions;
+
+import java.math.MathContext;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public final class Sample {
     public static void main(final String[] args) {
-        assertEquals(true, true);
+        final ExpressionNumberKind kind = ExpressionNumberKind.DOUBLE;
+
+        assertEquals(
+                kind.create(Math.cos(1)),
+                NumberTrigonomteryExpressionFunctions.cos()
+                        .apply(
+                                Lists.of(
+                                        kind.one()
+                                ),
+                                new FakeExpressionEvaluationContext() {
+
+                                    @Override
+                                    public <T> Either<T, String> convert(final Object value,
+                                                                         final Class<T> target) {
+                                        return this.successfulConversion(
+                                                value,
+                                                target
+                                        );
+                                    }
+
+                                    @Override
+                                    public MathContext mathContext() {
+                                        return MathContext.DECIMAL128;
+                                    }
+                                }
+                        )
+        );
     }
 }
