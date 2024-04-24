@@ -40,6 +40,7 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
+import walkingkooka.text.CaseSensitivity;
 import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.ExpressionNumberKind;
@@ -62,7 +63,7 @@ public final class NumberTrigonomteryExpressionFunctionsTest implements PublicSt
                         .filter(m -> m.getReturnType() == ExpressionFunction.class)
                         .map(Method::getName)
                         .collect(Collectors.toCollection(Sets::sorted)),
-                NumberTrigonomteryExpressionFunctions.expressionFunctionProvider()
+                NumberTrigonomteryExpressionFunctions.expressionFunctionProvider(CaseSensitivity.SENSITIVE)
                         .expressionFunctionInfos()
                         .stream()
                         .map(i -> i.name().value())
