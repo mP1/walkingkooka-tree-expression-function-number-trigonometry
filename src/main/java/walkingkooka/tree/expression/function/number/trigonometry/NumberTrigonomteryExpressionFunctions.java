@@ -36,17 +36,19 @@ package walkingkooka.tree.expression.function.number.trigonometry;
 
 import ch.obermuhlner.math.big.BigDecimalMath;
 import walkingkooka.Cast;
-import walkingkooka.collect.list.Lists;
+import walkingkooka.collect.set.Sets;
+import walkingkooka.net.Url;
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.ExpressionNumberFunctions;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunction;
+import walkingkooka.tree.expression.function.provider.ExpressionFunctionProvider;
+import walkingkooka.tree.expression.function.provider.ExpressionFunctionProviders;
 
 import java.math.BigDecimal;
 import java.util.Optional;
-import java.util.function.Consumer;
 
 /**
  * Collection of static factory methods for numerous {@link ExpressionFunction}.
@@ -54,23 +56,26 @@ import java.util.function.Consumer;
 public final class NumberTrigonomteryExpressionFunctions implements PublicStaticHelper {
 
     /**
-     * Visit all {@link ExpressionFunction functions}.
+     * An {@link ExpressionFunctionProvider} with all the functions in this project.
      */
-    public static void visit(final Consumer<ExpressionFunction<?, ?>> consumer) {
-        Lists.of(
-                acos(),
-                asin(),
-                atan(),
-                cos(),
-                cosh(),
-                degrees(),
-                pi(),
-                radians(),
-                sin(),
-                sinh(),
-                tan(),
-                tanh()
-        ).forEach(consumer);
+    public static ExpressionFunctionProvider expressionFunctionProvider() {
+        return ExpressionFunctionProviders.basic(
+                Url.parseAbsolute("https://github.com/mP1/walkingkooka-tree-expression-function-number-trigonometry/"),
+                Sets.of(
+                        acos(),
+                        asin(),
+                        atan(),
+                        cos(),
+                        cosh(),
+                        degrees(),
+                        pi(),
+                        radians(),
+                        sin(),
+                        sinh(),
+                        tan(),
+                        tanh()
+                )
+        );
     }
 
     /**

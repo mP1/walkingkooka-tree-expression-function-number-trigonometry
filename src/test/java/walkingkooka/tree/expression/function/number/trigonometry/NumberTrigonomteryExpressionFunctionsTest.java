@@ -44,34 +44,29 @@ import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.FakeExpressionEvaluationContext;
-import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunction;
 
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.util.Arrays;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 public final class NumberTrigonomteryExpressionFunctionsTest implements PublicStaticHelperTesting<NumberTrigonomteryExpressionFunctions>,
         ToStringTesting<NumberTrigonomteryExpressionFunctions> {
 
     @Test
-    public void testVisit() {
-        final Set<FunctionExpressionName> names = Sets.sorted();
-        NumberTrigonomteryExpressionFunctions.visit((e) -> names.add(e.name().get()));
-
-        this.checkEquals(Arrays.stream(NumberTrigonomteryExpressionFunctions.class.getDeclaredMethods())
+    public void testExpressionFunctionProvider() {
+        this.checkEquals(
+                Arrays.stream(NumberTrigonomteryExpressionFunctions.class.getDeclaredMethods())
                         .filter(m -> m.getReturnType() == ExpressionFunction.class)
                         .map(Method::getName)
+                        .collect(Collectors.toCollection(Sets::sorted)),
+                NumberTrigonomteryExpressionFunctions.expressionFunctionProvider()
+                        .expressionFunctionInfos()
+                        .stream()
+                        .map(i -> i.name().value())
                         .collect(Collectors.toCollection(Sets::sorted))
-                        .size(),
-                names.size());
-
-        this.checkEquals(
-                true,
-                names.contains(NumberTrigonomteryExpressionFunctions.acos().name().get())
         );
     }
 
