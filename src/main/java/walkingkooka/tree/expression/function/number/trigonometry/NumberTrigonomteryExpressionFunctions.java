@@ -41,9 +41,9 @@ import walkingkooka.net.Url;
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.text.CaseSensitivity;
 import walkingkooka.tree.expression.ExpressionEvaluationContext;
+import walkingkooka.tree.expression.ExpressionFunctionName;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.ExpressionNumberFunctions;
-import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunction;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionProvider;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionProviders;
@@ -231,9 +231,9 @@ public final class NumberTrigonomteryExpressionFunctions implements PublicStatic
             Math::tanh
     ).function(functionName("tanh"));
 
-    private static Optional<FunctionExpressionName> functionName(final String name) {
+    private static Optional<ExpressionFunctionName> functionName(final String name) {
         return Optional.of(
-                FunctionExpressionName.with(name)
+                ExpressionFunctionName.with(name)
         );
     }
 
