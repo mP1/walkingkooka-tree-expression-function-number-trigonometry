@@ -37,7 +37,7 @@ package walkingkooka.tree.expression.function.number.trigonometry;
 import org.junit.jupiter.api.Test;
 import walkingkooka.ToStringTesting;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.collect.set.Sets;
+import walkingkooka.collect.set.SortedSets;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
 import walkingkooka.text.CaseSensitivity;
@@ -62,12 +62,12 @@ public final class NumberTrigonomteryExpressionFunctionsTest implements PublicSt
                 Arrays.stream(NumberTrigonomteryExpressionFunctions.class.getDeclaredMethods())
                         .filter(m -> m.getReturnType() == ExpressionFunction.class)
                         .map(Method::getName)
-                        .collect(Collectors.toCollection(Sets::sorted)),
+                        .collect(Collectors.toCollection(SortedSets::tree)),
                 NumberTrigonomteryExpressionFunctions.expressionFunctionProvider(CaseSensitivity.SENSITIVE)
                         .expressionFunctionInfos()
                         .stream()
                         .map(i -> i.name().value())
-                        .collect(Collectors.toCollection(Sets::sorted))
+                        .collect(Collectors.toCollection(SortedSets::tree))
         );
     }
 
