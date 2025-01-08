@@ -32,29 +32,29 @@ public final class Sample {
         final ExpressionNumberKind kind = ExpressionNumberKind.DOUBLE;
 
         assertEquals(
-                kind.create(Math.cos(1)),
-                NumberTrigonomteryExpressionFunctions.cos()
-                        .apply(
-                                Lists.of(
-                                        kind.one()
-                                ),
-                                new FakeExpressionEvaluationContext() {
+            kind.create(Math.cos(1)),
+            NumberTrigonomteryExpressionFunctions.cos()
+                .apply(
+                    Lists.of(
+                        kind.one()
+                    ),
+                    new FakeExpressionEvaluationContext() {
 
-                                    @Override
-                                    public <T> Either<T, String> convert(final Object value,
-                                                                         final Class<T> target) {
-                                        return this.successfulConversion(
-                                                value,
-                                                target
-                                        );
-                                    }
+                        @Override
+                        public <T> Either<T, String> convert(final Object value,
+                                                             final Class<T> target) {
+                            return this.successfulConversion(
+                                value,
+                                target
+                            );
+                        }
 
-                                    @Override
-                                    public MathContext mathContext() {
-                                        return MathContext.DECIMAL128;
-                                    }
-                                }
-                        )
+                        @Override
+                        public MathContext mathContext() {
+                            return MathContext.DECIMAL128;
+                        }
+                    }
+                )
         );
     }
 }

@@ -33,9 +33,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public abstract class NumberExpressionFunctionTestCase<F extends ExpressionFunction<ExpressionNumber, ExpressionEvaluationContext>>
-        implements ExpressionFunctionTesting<F, ExpressionNumber, ExpressionEvaluationContext>,
-        ClassTesting2<F>,
-        TypeNameTesting<F> {
+    implements ExpressionFunctionTesting<F, ExpressionNumber, ExpressionEvaluationContext>,
+    ClassTesting2<F>,
+    TypeNameTesting<F> {
 
     final static ExpressionNumberKind KIND = ExpressionNumberKind.DEFAULT;
 
@@ -46,9 +46,9 @@ public abstract class NumberExpressionFunctionTestCase<F extends ExpressionFunct
     @Test
     public final void testIsPureTrue() {
         this.isPureAndCheck(
-                this.createBiFunction(),
-                ExpressionEvaluationContexts.fake(),
-                true
+            this.createBiFunction(),
+            ExpressionEvaluationContexts.fake(),
+            true
         );
     }
 
@@ -57,12 +57,12 @@ public abstract class NumberExpressionFunctionTestCase<F extends ExpressionFunct
                                      final List<Object> parameters,
                                      final ExpressionNumber result) {
         this.applyAndCheck2(
-                function,
-                parameters.stream()
-                        .map(i -> KIND.create((Number) i))
-                        .collect(Collectors.toList()),
-                this.createContext(),
-                result
+            function,
+            parameters.stream()
+                .map(i -> KIND.create((Number) i))
+                .collect(Collectors.toList()),
+            this.createContext(),
+            result
         );
     }
 

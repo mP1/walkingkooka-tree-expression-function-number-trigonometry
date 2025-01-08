@@ -54,20 +54,20 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 
 public final class NumberTrigonomteryExpressionFunctionsTest implements PublicStaticHelperTesting<NumberTrigonomteryExpressionFunctions>,
-        ToStringTesting<NumberTrigonomteryExpressionFunctions> {
+    ToStringTesting<NumberTrigonomteryExpressionFunctions> {
 
     @Test
     public void testExpressionFunctionProvider() {
         this.checkEquals(
-                Arrays.stream(NumberTrigonomteryExpressionFunctions.class.getDeclaredMethods())
-                        .filter(m -> m.getReturnType() == ExpressionFunction.class)
-                        .map(Method::getName)
-                        .collect(Collectors.toCollection(SortedSets::tree)),
-                NumberTrigonomteryExpressionFunctions.expressionFunctionProvider(CaseSensitivity.SENSITIVE)
-                        .expressionFunctionInfos()
-                        .stream()
-                        .map(i -> i.name().value())
-                        .collect(Collectors.toCollection(SortedSets::tree))
+            Arrays.stream(NumberTrigonomteryExpressionFunctions.class.getDeclaredMethods())
+                .filter(m -> m.getReturnType() == ExpressionFunction.class)
+                .map(Method::getName)
+                .collect(Collectors.toCollection(SortedSets::tree)),
+            NumberTrigonomteryExpressionFunctions.expressionFunctionProvider(CaseSensitivity.SENSITIVE)
+                .expressionFunctionInfos()
+                .stream()
+                .map(i -> i.name().value())
+                .collect(Collectors.toCollection(SortedSets::tree))
         );
     }
 
@@ -76,26 +76,26 @@ public final class NumberTrigonomteryExpressionFunctionsTest implements PublicSt
     @Test
     public void testAcosBigDecimal() {
         this.mapBigDecimalAndCheck(
-                NumberTrigonomteryExpressionFunctions.acos(),
-                BigDecimal.valueOf(0.5),
-                new BigDecimal("1.047198")
+            NumberTrigonomteryExpressionFunctions.acos(),
+            BigDecimal.valueOf(0.5),
+            new BigDecimal("1.047198")
         );
     }
 
     @Test
     public void testAcosDouble() {
         this.mapDoubleAndCheck(
-                NumberTrigonomteryExpressionFunctions.acos(),
-                0.5,
-                Math.acos(0.5)
+            NumberTrigonomteryExpressionFunctions.acos(),
+            0.5,
+            Math.acos(0.5)
         );
     }
 
     @Test
     public void testAcosToString() {
         this.toStringAndCheck(
-                NumberTrigonomteryExpressionFunctions.acos(),
-                "acos"
+            NumberTrigonomteryExpressionFunctions.acos(),
+            "acos"
         );
     }
 
@@ -104,26 +104,26 @@ public final class NumberTrigonomteryExpressionFunctionsTest implements PublicSt
     @Test
     public void testAsinBigDecimal() {
         this.mapBigDecimalAndCheck(
-                NumberTrigonomteryExpressionFunctions.asin(),
-                BigDecimal.valueOf(0.5),
-                new BigDecimal("0.5235988")
+            NumberTrigonomteryExpressionFunctions.asin(),
+            BigDecimal.valueOf(0.5),
+            new BigDecimal("0.5235988")
         );
     }
 
     @Test
     public void testAsinDouble() {
         this.mapDoubleAndCheck(
-                NumberTrigonomteryExpressionFunctions.asin(),
-                0.5,
-                Math.asin(0.5)
+            NumberTrigonomteryExpressionFunctions.asin(),
+            0.5,
+            Math.asin(0.5)
         );
     }
 
     @Test
     public void testAsinToString() {
         this.toStringAndCheck(
-                NumberTrigonomteryExpressionFunctions.asin(),
-                "asin"
+            NumberTrigonomteryExpressionFunctions.asin(),
+            "asin"
         );
     }
 
@@ -132,26 +132,26 @@ public final class NumberTrigonomteryExpressionFunctionsTest implements PublicSt
     @Test
     public void testAtanBigDecimal() {
         this.mapBigDecimalAndCheck(
-                NumberTrigonomteryExpressionFunctions.atan(),
-                BigDecimal.valueOf(0.5),
-                new BigDecimal("0.4636476")
+            NumberTrigonomteryExpressionFunctions.atan(),
+            BigDecimal.valueOf(0.5),
+            new BigDecimal("0.4636476")
         );
     }
 
     @Test
     public void testAtanDouble() {
         this.mapDoubleAndCheck(
-                NumberTrigonomteryExpressionFunctions.atan(),
-                0.5,
-                Math.atan(0.5)
+            NumberTrigonomteryExpressionFunctions.atan(),
+            0.5,
+            Math.atan(0.5)
         );
     }
 
     @Test
     public void testAtanToString() {
         this.toStringAndCheck(
-                NumberTrigonomteryExpressionFunctions.atan(),
-                "atan"
+            NumberTrigonomteryExpressionFunctions.atan(),
+            "atan"
         );
     }
 
@@ -160,26 +160,26 @@ public final class NumberTrigonomteryExpressionFunctionsTest implements PublicSt
     @Test
     public void testCosBigDecimal() {
         this.mapBigDecimalAndCheck(
-                NumberTrigonomteryExpressionFunctions.cos(),
-                BigDecimal.valueOf(0.5),
-                new BigDecimal("0.8775826")
+            NumberTrigonomteryExpressionFunctions.cos(),
+            BigDecimal.valueOf(0.5),
+            new BigDecimal("0.8775826")
         );
     }
 
     @Test
     public void testCosDouble() {
         this.mapDoubleAndCheck(
-                NumberTrigonomteryExpressionFunctions.cos(),
-                0.5,
-                Math.cos(0.5)
+            NumberTrigonomteryExpressionFunctions.cos(),
+            0.5,
+            Math.cos(0.5)
         );
     }
 
     @Test
     public void testCosToString() {
         this.toStringAndCheck(
-                NumberTrigonomteryExpressionFunctions.cos(),
-                "cos"
+            NumberTrigonomteryExpressionFunctions.cos(),
+            "cos"
         );
     }
 
@@ -188,26 +188,26 @@ public final class NumberTrigonomteryExpressionFunctionsTest implements PublicSt
     @Test
     public void testCoshBigDecimal() {
         this.mapBigDecimalAndCheck(
-                NumberTrigonomteryExpressionFunctions.cosh(),
-                BigDecimal.valueOf(0.5),
-                new BigDecimal("1.127626")
+            NumberTrigonomteryExpressionFunctions.cosh(),
+            BigDecimal.valueOf(0.5),
+            new BigDecimal("1.127626")
         );
     }
 
     @Test
     public void testCoshDouble() {
         this.mapDoubleAndCheck(
-                NumberTrigonomteryExpressionFunctions.cosh(),
-                0.5,
-                Math.cosh(0.5)
+            NumberTrigonomteryExpressionFunctions.cosh(),
+            0.5,
+            Math.cosh(0.5)
         );
     }
 
     @Test
     public void testCoshToString() {
         this.toStringAndCheck(
-                NumberTrigonomteryExpressionFunctions.cosh(),
-                "cosh"
+            NumberTrigonomteryExpressionFunctions.cosh(),
+            "cosh"
         );
     }
 
@@ -216,26 +216,26 @@ public final class NumberTrigonomteryExpressionFunctionsTest implements PublicSt
     @Test
     public void testDegreesBigDecimal() {
         this.mapBigDecimalAndCheck(
-                NumberTrigonomteryExpressionFunctions.degrees(),
-                BigDecimal.valueOf(0.5),
-                new BigDecimal("28.647885")
+            NumberTrigonomteryExpressionFunctions.degrees(),
+            BigDecimal.valueOf(0.5),
+            new BigDecimal("28.647885")
         );
     }
 
     @Test
     public void testDegreesDouble() {
         this.mapDoubleAndCheck(
-                NumberTrigonomteryExpressionFunctions.degrees(),
-                0.5,
-                Math.toDegrees(0.5)
+            NumberTrigonomteryExpressionFunctions.degrees(),
+            0.5,
+            Math.toDegrees(0.5)
         );
     }
 
     @Test
     public void testDegreesToString() {
         this.toStringAndCheck(
-                NumberTrigonomteryExpressionFunctions.degrees(),
-                "degrees"
+            NumberTrigonomteryExpressionFunctions.degrees(),
+            "degrees"
         );
     }
 
@@ -244,54 +244,54 @@ public final class NumberTrigonomteryExpressionFunctionsTest implements PublicSt
     @Test
     public void testRadiansBigDecimal() {
         this.mapBigDecimalAndCheck(
-                NumberTrigonomteryExpressionFunctions.radians(),
-                BigDecimal.valueOf(30),
-                new BigDecimal("0.5235987")
+            NumberTrigonomteryExpressionFunctions.radians(),
+            BigDecimal.valueOf(30),
+            new BigDecimal("0.5235987")
         );
     }
 
     @Test
     public void testRadiansDouble() {
         this.mapDoubleAndCheck(
-                NumberTrigonomteryExpressionFunctions.radians(),
-                30,
-                Math.toRadians(30)
+            NumberTrigonomteryExpressionFunctions.radians(),
+            30,
+            Math.toRadians(30)
         );
     }
 
     @Test
     public void testRadiansToString() {
         this.toStringAndCheck(
-                NumberTrigonomteryExpressionFunctions.radians(),
-                "radians"
+            NumberTrigonomteryExpressionFunctions.radians(),
+            "radians"
         );
     }
-    
+
     // sin............................................................................................................
 
     @Test
     public void testSinBigDecimal() {
         this.mapBigDecimalAndCheck(
-                NumberTrigonomteryExpressionFunctions.sin(),
-                BigDecimal.valueOf(0.5),
-                new BigDecimal("0.4794255")
+            NumberTrigonomteryExpressionFunctions.sin(),
+            BigDecimal.valueOf(0.5),
+            new BigDecimal("0.4794255")
         );
     }
 
     @Test
     public void testSinDouble() {
         this.mapDoubleAndCheck(
-                NumberTrigonomteryExpressionFunctions.sin(),
-                0.5,
-                Math.sin(0.5)
+            NumberTrigonomteryExpressionFunctions.sin(),
+            0.5,
+            Math.sin(0.5)
         );
     }
 
     @Test
     public void testSinToString() {
         this.toStringAndCheck(
-                NumberTrigonomteryExpressionFunctions.sin(),
-                "sin"
+            NumberTrigonomteryExpressionFunctions.sin(),
+            "sin"
         );
     }
 
@@ -300,26 +300,26 @@ public final class NumberTrigonomteryExpressionFunctionsTest implements PublicSt
     @Test
     public void testSinhBigDecimal() {
         this.mapBigDecimalAndCheck(
-                NumberTrigonomteryExpressionFunctions.sinh(),
-                BigDecimal.valueOf(0.5),
-                new BigDecimal("0.5210953")
+            NumberTrigonomteryExpressionFunctions.sinh(),
+            BigDecimal.valueOf(0.5),
+            new BigDecimal("0.5210953")
         );
     }
 
     @Test
     public void testSinhDouble() {
         this.mapDoubleAndCheck(
-                NumberTrigonomteryExpressionFunctions.sinh(),
-                0.5,
-                Math.sinh(0.5)
+            NumberTrigonomteryExpressionFunctions.sinh(),
+            0.5,
+            Math.sinh(0.5)
         );
     }
 
     @Test
     public void testSinhToString() {
         this.toStringAndCheck(
-                NumberTrigonomteryExpressionFunctions.sinh(),
-                "sinh"
+            NumberTrigonomteryExpressionFunctions.sinh(),
+            "sinh"
         );
     }
 
@@ -328,26 +328,26 @@ public final class NumberTrigonomteryExpressionFunctionsTest implements PublicSt
     @Test
     public void testTanBigDecimal() {
         this.mapBigDecimalAndCheck(
-                NumberTrigonomteryExpressionFunctions.tan(),
-                BigDecimal.valueOf(0.5),
-                new BigDecimal("0.5463025")
+            NumberTrigonomteryExpressionFunctions.tan(),
+            BigDecimal.valueOf(0.5),
+            new BigDecimal("0.5463025")
         );
     }
 
     @Test
     public void testTanDouble() {
         this.mapDoubleAndCheck(
-                NumberTrigonomteryExpressionFunctions.tan(),
-                0.5,
-                Math.tan(0.5)
+            NumberTrigonomteryExpressionFunctions.tan(),
+            0.5,
+            Math.tan(0.5)
         );
     }
 
     @Test
     public void testTanToString() {
         this.toStringAndCheck(
-                NumberTrigonomteryExpressionFunctions.tan(),
-                "tan"
+            NumberTrigonomteryExpressionFunctions.tan(),
+            "tan"
         );
     }
 
@@ -356,26 +356,26 @@ public final class NumberTrigonomteryExpressionFunctionsTest implements PublicSt
     @Test
     public void testTanhBigDecimal() {
         this.mapBigDecimalAndCheck(
-                NumberTrigonomteryExpressionFunctions.tanh(),
-                BigDecimal.valueOf(0.5),
-                new BigDecimal("0.4621172")
+            NumberTrigonomteryExpressionFunctions.tanh(),
+            BigDecimal.valueOf(0.5),
+            new BigDecimal("0.4621172")
         );
     }
 
     @Test
     public void testTanhDouble() {
         this.mapDoubleAndCheck(
-                NumberTrigonomteryExpressionFunctions.tanh(),
-                0.5,
-                Math.tanh(0.5)
+            NumberTrigonomteryExpressionFunctions.tanh(),
+            0.5,
+            Math.tanh(0.5)
         );
     }
 
     @Test
     public void testTanhToString() {
         this.toStringAndCheck(
-                NumberTrigonomteryExpressionFunctions.tanh(),
-                "tanh"
+            NumberTrigonomteryExpressionFunctions.tanh(),
+            "tanh"
         );
     }
 
@@ -383,10 +383,10 @@ public final class NumberTrigonomteryExpressionFunctionsTest implements PublicSt
                                        final BigDecimal value,
                                        final BigDecimal expected) {
         this.mapAndCheck(
-                function,
-                value,
-                ExpressionNumberKind.BIG_DECIMAL,
-                expected
+            function,
+            value,
+            ExpressionNumberKind.BIG_DECIMAL,
+            expected
         );
     }
 
@@ -394,10 +394,10 @@ public final class NumberTrigonomteryExpressionFunctionsTest implements PublicSt
                                    final double value,
                                    final double expected) {
         this.mapAndCheck(
-                function,
-                value,
-                ExpressionNumberKind.DOUBLE,
-                expected
+            function,
+            value,
+            ExpressionNumberKind.DOUBLE,
+            expected
         );
     }
 
@@ -406,14 +406,14 @@ public final class NumberTrigonomteryExpressionFunctionsTest implements PublicSt
                                                 final ExpressionNumberKind kind,
                                                 final T expected) {
         this.checkEquals(
-                kind.create(expected),
-                function.apply(
-                        Lists.of(
-                                kind.create(value)
-                        ),
-                        this.context(kind)
+            kind.create(expected),
+            function.apply(
+                Lists.of(
+                    kind.create(value)
                 ),
-                () -> function + " " + value
+                this.context(kind)
+            ),
+            () -> function + " " + value
         );
     }
 
