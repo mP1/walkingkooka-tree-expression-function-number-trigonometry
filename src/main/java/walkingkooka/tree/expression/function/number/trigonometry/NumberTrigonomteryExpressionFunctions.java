@@ -61,22 +61,22 @@ public final class NumberTrigonomteryExpressionFunctions implements PublicStatic
      */
     public static ExpressionFunctionProvider expressionFunctionProvider(final CaseSensitivity nameCaseSensitivity) {
         return ExpressionFunctionProviders.basic(
-                Url.parseAbsolute("https://github.com/mP1/walkingkooka-tree-expression-function-number-trigonometry/"),
-                nameCaseSensitivity,
-                Sets.of(
-                        acos(),
-                        asin(),
-                        atan(),
-                        cos(),
-                        cosh(),
-                        degrees(),
-                        pi(),
-                        radians(),
-                        sin(),
-                        sinh(),
-                        tan(),
-                        tanh()
-                )
+            Url.parseAbsolute("https://github.com/mP1/walkingkooka-tree-expression-function-number-trigonometry/"),
+            nameCaseSensitivity,
+            Sets.of(
+                acos(),
+                asin(),
+                atan(),
+                cos(),
+                cosh(),
+                degrees(),
+                pi(),
+                radians(),
+                sin(),
+                sinh(),
+                tan(),
+                tanh()
+            )
         );
     }
 
@@ -88,8 +88,8 @@ public final class NumberTrigonomteryExpressionFunctions implements PublicStatic
     }
 
     private final static ExpressionFunction<ExpressionNumber, ExpressionEvaluationContext> ACOS = ExpressionNumberFunctions.lambdas(
-            BigDecimalMath::acos,
-            Math::acos
+        BigDecimalMath::acos,
+        Math::acos
     ).function(functionName("acos"));
 
     /**
@@ -100,8 +100,8 @@ public final class NumberTrigonomteryExpressionFunctions implements PublicStatic
     }
 
     private final static ExpressionFunction<ExpressionNumber, ExpressionEvaluationContext> ASIN = ExpressionNumberFunctions.lambdas(
-            BigDecimalMath::asin,
-            Math::asin
+        BigDecimalMath::asin,
+        Math::asin
     ).function(functionName("asin"));
 
     /**
@@ -112,8 +112,8 @@ public final class NumberTrigonomteryExpressionFunctions implements PublicStatic
     }
 
     private final static ExpressionFunction<ExpressionNumber, ExpressionEvaluationContext> ATAN = ExpressionNumberFunctions.lambdas(
-            BigDecimalMath::atan,
-            Math::atan
+        BigDecimalMath::atan,
+        Math::atan
     ).function(functionName("atan"));
 
     /**
@@ -124,8 +124,8 @@ public final class NumberTrigonomteryExpressionFunctions implements PublicStatic
     }
 
     private final static ExpressionFunction<ExpressionNumber, ExpressionEvaluationContext> COS = ExpressionNumberFunctions.lambdas(
-            BigDecimalMath::cos,
-            Math::cos
+        BigDecimalMath::cos,
+        Math::cos
     ).function(functionName("cos"));
 
     /**
@@ -136,8 +136,8 @@ public final class NumberTrigonomteryExpressionFunctions implements PublicStatic
     }
 
     private final static ExpressionFunction<ExpressionNumber, ExpressionEvaluationContext> COSH = ExpressionNumberFunctions.lambdas(
-            BigDecimalMath::cosh,
-            Math::cosh
+        BigDecimalMath::cosh,
+        Math::cosh
     ).function(functionName("cosh"));
 
     /**
@@ -150,13 +150,13 @@ public final class NumberTrigonomteryExpressionFunctions implements PublicStatic
     private final static BigDecimal ONE_EIGHTY = new BigDecimal("180");
 
     private final static ExpressionFunction<ExpressionNumber, ExpressionEvaluationContext> DEGREES = ExpressionNumberFunctions.lambdas(
-            (v, mc) -> v.multiply(
-                    ONE_EIGHTY.divide(
-                            BigDecimalMath.pi(mc),
-                            mc
-                    )
-            ),
-            Math::toDegrees
+        (v, mc) -> v.multiply(
+            ONE_EIGHTY.divide(
+                BigDecimalMath.pi(mc),
+                mc
+            )
+        ),
+        Math::toDegrees
     ).function(functionName("degrees"));
 
     /**
@@ -174,13 +174,13 @@ public final class NumberTrigonomteryExpressionFunctions implements PublicStatic
     }
 
     private final static ExpressionFunction<ExpressionNumber, ExpressionEvaluationContext> RADIANS = ExpressionNumberFunctions.lambdas(
-            (v, mc) -> v.multiply(
-                    BigDecimalMath.pi(mc).divide(
-                            ONE_EIGHTY,
-                            mc
-                    )
-            ),
-            Math::toRadians
+        (v, mc) -> v.multiply(
+            BigDecimalMath.pi(mc).divide(
+                ONE_EIGHTY,
+                mc
+            )
+        ),
+        Math::toRadians
     ).function(functionName("radians"));
 
     /**
@@ -191,8 +191,8 @@ public final class NumberTrigonomteryExpressionFunctions implements PublicStatic
     }
 
     private final static ExpressionFunction<ExpressionNumber, ExpressionEvaluationContext> SIN = ExpressionNumberFunctions.lambdas(
-            BigDecimalMath::sin,
-            Math::sin
+        BigDecimalMath::sin,
+        Math::sin
     ).function(functionName("sin"));
 
     /**
@@ -203,8 +203,8 @@ public final class NumberTrigonomteryExpressionFunctions implements PublicStatic
     }
 
     private final static ExpressionFunction<ExpressionNumber, ExpressionEvaluationContext> SINH = ExpressionNumberFunctions.lambdas(
-            BigDecimalMath::sinh,
-            Math::sinh
+        BigDecimalMath::sinh,
+        Math::sinh
     ).function(functionName("sinh"));
 
     /**
@@ -215,8 +215,8 @@ public final class NumberTrigonomteryExpressionFunctions implements PublicStatic
     }
 
     private final static ExpressionFunction<ExpressionNumber, ExpressionEvaluationContext> TAN = ExpressionNumberFunctions.lambdas(
-            BigDecimalMath::tan,
-            Math::tan
+        BigDecimalMath::tan,
+        Math::tan
     ).function(functionName("tan"));
 
     /**
@@ -227,13 +227,13 @@ public final class NumberTrigonomteryExpressionFunctions implements PublicStatic
     }
 
     private final static ExpressionFunction<ExpressionNumber, ExpressionEvaluationContext> TANH = ExpressionNumberFunctions.lambdas(
-            BigDecimalMath::tanh,
-            Math::tanh
+        BigDecimalMath::tanh,
+        Math::tanh
     ).function(functionName("tanh"));
 
     private static Optional<ExpressionFunctionName> functionName(final String name) {
         return Optional.of(
-                ExpressionFunctionName.with(name)
+            ExpressionFunctionName.with(name)
         );
     }
 

@@ -33,37 +33,37 @@ public final class NumberExpressionFunctionPiTest extends NumberExpressionFuncti
     @Test
     public void testBigDecimalPi() {
         final ExpressionNumber number = this.createBiFunction()
-                .apply(
-                        Lists.empty(),
-                        new FakeExpressionEvaluationContext() {
-                            @Override
-                            public ExpressionNumberKind expressionNumberKind() {
-                                return ExpressionNumberKind.BIG_DECIMAL;
-                            }
+            .apply(
+                Lists.empty(),
+                new FakeExpressionEvaluationContext() {
+                    @Override
+                    public ExpressionNumberKind expressionNumberKind() {
+                        return ExpressionNumberKind.BIG_DECIMAL;
+                    }
 
-                            @Override
-                            public MathContext mathContext() {
-                                return MathContext.DECIMAL32;
-                            }
-                        }
-                );
+                    @Override
+                    public MathContext mathContext() {
+                        return MathContext.DECIMAL32;
+                    }
+                }
+            );
         this.checkEquals(
-                "3.142",
-                new DecimalFormat("#.000").format(number)
+            "3.142",
+            new DecimalFormat("#.000").format(number)
         );
     }
 
     @Test
     public void testDoublePi() {
         this.applyAndCheck(
-                Lists.empty(),
-                new FakeExpressionEvaluationContext() {
-                    @Override
-                    public ExpressionNumberKind expressionNumberKind() {
-                        return ExpressionNumberKind.DOUBLE;
-                    }
-                },
-                ExpressionNumberKind.DOUBLE.create(Math.PI)
+            Lists.empty(),
+            new FakeExpressionEvaluationContext() {
+                @Override
+                public ExpressionNumberKind expressionNumberKind() {
+                    return ExpressionNumberKind.DOUBLE;
+                }
+            },
+            ExpressionNumberKind.DOUBLE.create(Math.PI)
         );
     }
 

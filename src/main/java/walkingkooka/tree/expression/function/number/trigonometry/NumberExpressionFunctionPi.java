@@ -29,7 +29,7 @@ import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 import java.util.List;
 import java.util.Optional;
 
-final class NumberExpressionFunctionPi<C extends ExpressionEvaluationContext> extends NumberExpressionFunction<C>{
+final class NumberExpressionFunctionPi<C extends ExpressionEvaluationContext> extends NumberExpressionFunction<C> {
 
     static <C extends ExpressionEvaluationContext> NumberExpressionFunctionPi<C> instance() {
         return Cast.to(INSTANCE);
@@ -50,7 +50,7 @@ final class NumberExpressionFunctionPi<C extends ExpressionEvaluationContext> ex
     }
 
     private final static Optional<ExpressionFunctionName> NAME = Optional.of(
-            ExpressionFunctionName.with("pi")
+        ExpressionFunctionName.with("pi")
     );
 
     @Override
@@ -62,10 +62,10 @@ final class NumberExpressionFunctionPi<C extends ExpressionEvaluationContext> ex
 
         final ExpressionNumberKind kind = context.expressionNumberKind();
 
-        switch(kind) {
+        switch (kind) {
             case BIG_DECIMAL:
                 pi = ExpressionNumberKind.BIG_DECIMAL.create(
-                        BigDecimalMath.pi(context.mathContext())
+                    BigDecimalMath.pi(context.mathContext())
                 );
                 break;
             case DOUBLE:
