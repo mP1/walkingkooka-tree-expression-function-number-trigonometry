@@ -24,6 +24,7 @@ import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionFunctionName;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.ExpressionNumberKind;
+import walkingkooka.tree.expression.function.ExpressionFunction;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 
 import java.util.List;
@@ -83,6 +84,6 @@ final class NumberExpressionFunctionPi<C extends ExpressionEvaluationContext> ex
 
     @Override
     public List<ExpressionFunctionParameter<?>> parameters(final int count) {
-        return ExpressionFunctionParameter.EMPTY;
+        return ExpressionFunction.NO_PARAMETERS;
     }
 }
