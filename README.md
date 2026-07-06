@@ -6,13 +6,10 @@
 ![](https://tokei.rs/b1/github/mP1/walkingkooka-tree-expression-function-number-trigonometry)
 [![J2CL compatible](https://img.shields.io/badge/J2CL-compatible-brightgreen.svg)](https://github.com/mP1/j2cl-central)
 
-
 # walkingkooka-tree-expression-function-number-trigonometry
 A collection of trigonometry ExpressionFunction(s) that operate and return number results.
 
-
 ## Available functions
-
 
 Many more functions are outstanding and remain TODO.
 
@@ -31,6 +28,3 @@ Many more functions are outstanding and remain TODO.
 - sinh(number)
 - tan(number)
 - tanh(number)
-
-
-
