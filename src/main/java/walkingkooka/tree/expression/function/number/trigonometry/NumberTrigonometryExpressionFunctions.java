@@ -54,7 +54,7 @@ import java.util.Optional;
 /**
  * Collection of static factory methods for numerous {@link ExpressionFunction}.
  */
-public final class NumberTrigonomteryExpressionFunctions implements PublicStaticHelper {
+public final class NumberTrigonometryExpressionFunctions implements PublicStaticHelper {
 
     /**
      * An {@link ExpressionFunctionProvider} with all the functions in this project.
@@ -240,7 +240,7 @@ public final class NumberTrigonomteryExpressionFunctions implements PublicStatic
     /**
      * Stops creation
      */
-    private NumberTrigonomteryExpressionFunctions() {
+    private NumberTrigonometryExpressionFunctions() {
         throw new UnsupportedOperationException();
     }
 }
