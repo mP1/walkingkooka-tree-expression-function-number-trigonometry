@@ -9,7 +9,7 @@
 # walkingkooka-tree-expression-function-number-trigonometry
 A collection of trigonometry ExpressionFunction(s) that operate and return number results.
 
-## Available functions
+## [Functions](https://github.com/mP1/walkingkooka-tree/blob/master/src/main/java/walkingkooka/tree/expression/function/ExpressionFunction.java)
 
 Many more functions are outstanding and remain TODO.
 
