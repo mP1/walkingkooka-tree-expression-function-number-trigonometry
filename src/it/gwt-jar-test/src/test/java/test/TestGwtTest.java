@@ -7,7 +7,7 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.j2cl.locale.LocaleAware;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.FakeExpressionEvaluationContext;
-import walkingkooka.tree.expression.function.number.trigonometry.NumberTrigonomteryExpressionFunctions;
+import walkingkooka.tree.expression.function.number.trigonometry.NumberTrigonometryExpressionFunctions;
 
 import java.math.MathContext;
 
@@ -31,7 +31,7 @@ public class TestGwtTest extends GWTTestCase {
 
         assertEquals(
             kind.create(Math.cos(1)),
-            NumberTrigonomteryExpressionFunctions.cos()
+            NumberTrigonometryExpressionFunctions.cos()
                 .apply(
                     Lists.of(
                         kind.one()
