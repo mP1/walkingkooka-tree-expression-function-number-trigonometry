@@ -24,7 +24,7 @@ import walkingkooka.Either;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.FakeExpressionEvaluationContext;
-import walkingkooka.tree.expression.function.number.trigonometry.NumberTrigonomteryExpressionFunctions;
+import walkingkooka.tree.expression.function.number.trigonometry.NumberTrigonometryExpressionFunctions;
 
 import java.math.MathContext;
 
@@ -42,7 +42,7 @@ public class JunitTest {
 
         Assert.assertEquals(
             kind.create(Math.cos(1)),
-            NumberTrigonomteryExpressionFunctions.cos()
+            NumberTrigonometryExpressionFunctions.cos()
                 .apply(
                     Lists.of(
                         kind.one()
