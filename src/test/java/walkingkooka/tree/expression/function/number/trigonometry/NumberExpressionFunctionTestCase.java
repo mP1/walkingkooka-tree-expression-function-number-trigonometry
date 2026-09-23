@@ -26,13 +26,13 @@ import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.FakeExpressionEvaluationContext;
 import walkingkooka.tree.expression.function.ExpressionFunction;
-import walkingkooka.tree.expression.function.ExpressionFunctionTesting;
+import walkingkooka.tree.expression.function.ExpressionFunctionTesting2;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 public abstract class NumberExpressionFunctionTestCase<F extends ExpressionFunction<ExpressionNumber, ExpressionEvaluationContext>>
-    implements ExpressionFunctionTesting<F, ExpressionNumber, ExpressionEvaluationContext>,
+    implements ExpressionFunctionTesting2<F, ExpressionNumber, ExpressionEvaluationContext>,
     ClassTesting2<F>,
     TypeNameTesting<F> {
 
